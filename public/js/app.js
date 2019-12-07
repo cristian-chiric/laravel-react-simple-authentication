@@ -100123,7 +100123,7 @@ function Clients(_ref) {
 
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "dashboard-form"
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Welcome ", name), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, "Total clients: ", totalClients), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Hi ", name, ", welcome to your admin account"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, "Total clients: ", totalClients), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_5__["default"], {
     "aria-label": "simple table"
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_8__["default"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_9__["default"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], null, "Name"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], null, "Email"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], {
     align: "right"
@@ -100201,7 +100201,7 @@ function Dashboard(_ref) {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dashboard-form"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome ", name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Total clients: ", totalClients), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hi ", name, ", welcome to your admin account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Total clients: ", totalClients), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Button"], {
     variant: "contained",
     color: "primary",
     onClick: function onClick() {

@@ -37,7 +37,7 @@ export default function Clients({ name, clients, totalClients }) {
 
     return (
         <div className='dashboard-form'>
-            <h1>Welcome {name}</h1>
+            <h1>Hi {name}, welcome to your admin account</h1>
             <h2>Total clients: {totalClients}</h2>
             <Table aria-label="simple table">
                 <TableHead>

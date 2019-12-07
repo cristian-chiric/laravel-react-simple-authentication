@@ -16,7 +16,7 @@ export default function Dashboard({ name, totalClients }) {
 
     return (
         <div className='dashboard-form'>
-            <h1>Welcome {name}</h1>
+            <h1>Hi {name}, welcome to your admin account</h1>
             <h2>Total clients: {totalClients}</h2>
             <Button variant="contained" color="primary" onClick={() => handleAction('view')}>View clients</Button>
             <Button variant="contained" color="primary" onClick={() => handleAction('create')}>Add Client</Button>
