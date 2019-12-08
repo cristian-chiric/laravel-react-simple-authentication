@@ -49,11 +49,7 @@ class ClientRepository extends Repository
 
     public function beforeUpdate($client, &$data)
     {
-        if (auth()->user()) {
-            if ($client->user->id !== auth()->user()->id) {
-                throw new ModelNotFoundException();
-            }
-        }
+        $this->verifyOwnership($client);
 
         if (request()->hasFile('profile_picture')) {
             Storage::disk('public')->delete($client->profilePicture);
@@ -71,10 +67,21 @@ class ClientRepository extends Repository
 
     public function beforeDelete($client)
     {
+        $this->verifyOwnership($client);
+
         if (empty($client->profilePicture)) {
             return;
         }
 
         Storage::disk('public')->delete($client->profilePicture);
+    }
+
+    protected function verifyOwnership($client)
+    {
+        if (auth()->user()) {
+            if ($client->user->id !== auth()->user()->id) {
+                throw new ModelNotFoundException();
+            }
+        }
     }
 }

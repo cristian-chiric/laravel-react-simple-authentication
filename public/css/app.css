@@ -17,6 +17,7 @@ body {
 .box a {
   color: #4987c9;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .box h1 {
