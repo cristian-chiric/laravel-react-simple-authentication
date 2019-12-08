@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(SendClientList::class)->weekly();
+        $schedule->command(SendClientList::class, '--to-users')->weekly();
     }
 
     /**
