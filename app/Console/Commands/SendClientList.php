@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Emails\ClientListEmail;
 use App\Models\Client;
+use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 
@@ -14,7 +15,7 @@ class SendClientList extends Command
      *
      * @var string
      */
-    protected $signature = 'send:client-list {email?}';
+    protected $signature = 'send:client-list {--to-users} {email?}';
 
     /**
      * The console command description.
@@ -30,7 +31,15 @@ class SendClientList extends Command
      */
     public function handle()
     {
-        $clients = Client::withoutGlobalScope('owner')->get()->toArray();
+        if ($this->option('to-users')) {
+            User::withClients()->get()->each(function(User $user): void {
+                Mail::to($user->email)->send(new ClientListEmail($user->clients->sortBy('id')->values()->toArray()));
+            });
+
+            return;
+        }
+
+        $clients = Client::all()->toArray();
 
         Mail::to($this->argument('email') ?? config('mail.to.address'))
             ->send(new ClientListEmail($clients));

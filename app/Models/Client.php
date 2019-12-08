@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Client extends Model
 {
@@ -17,12 +18,9 @@ class Client extends Model
         'profile_picture',
     ];
 
-    protected static function boot()
+    public function user(): BelongsTo
     {
-        parent::boot();
-        static::addGlobalScope('owner', function (Builder $builder) {
-            $builder->where('user_id', '=', auth()->user()->id);
-        });
+        return $this->belongsTo(User::class);
     }
 
     public function scopeFromUser(Builder $query, int $userId): Builder

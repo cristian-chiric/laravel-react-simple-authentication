@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Models\Client;
 use App\Repository\Shared\Repository;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
 class ClientRepository extends Repository
@@ -11,6 +13,15 @@ class ClientRepository extends Repository
     public function __construct(Client $model)
     {
         parent::__construct($model);
+    }
+
+    public function all(): Collection
+    {
+        if (auth()->user()) {
+            return $this->model->fromUser(auth()->user()->id)->get();
+        }
+
+        return $this->model->all();
     }
 
     public function beforeCreate(&$data)
@@ -29,6 +40,12 @@ class ClientRepository extends Repository
 
     public function beforeUpdate($client, &$data)
     {
+        if (auth()->user()) {
+            if ($client->user->id !== auth()->user()->id) {
+                throw new ModelNotFoundException();
+            }
+        }
+
         if (request()->hasFile('profile_picture')) {
             Storage::disk('public')->delete($client->profilePicture);
 

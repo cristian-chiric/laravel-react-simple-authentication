@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -37,6 +39,13 @@ class User extends Authenticatable
     ];
 
     /**
+     * @var array
+     */
+    protected $with = [
+        'clients',
+    ];
+
+    /**
      * Add a mutator to ensure hashed passwords
      *
      * @var string
@@ -44,5 +53,15 @@ class User extends Authenticatable
     public function setPasswordAttribute(string $password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function clients(): HasMany
+    {
+        return $this->hasMany(Client::class);
+    }
+
+    public function scopeWithClients(Builder $query): Builder
+    {
+        return $query->has('clients');
     }
 }

@@ -31,6 +31,18 @@ Commands.
 - Profile picture files can be saved on the public folder.
 - Command email doesn’t have to send, can use log driver.
 
+## Installation
+
+- composer install
+- yarn
+- cp .env.example .env
+- php artisan key:generate
+- php artisan migrate
+- valet link simple-authentication (for captcha keys to work)
+- valet secure
+
+Enjoy app at: https://simple-authentication.test
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

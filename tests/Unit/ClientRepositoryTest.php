@@ -40,7 +40,8 @@ class ClientRepositoryTest extends TestCase
     public function a_user_cannot_edit_another_users_client()
     {
         $user = factory(User::class)->create();
-        $client = factory(Client::class)->create(['name' => 'Tester', 'user_id' => 11]);
+        $user2 = factory(User::class)->create();
+        $client = factory(Client::class)->create(['name' => 'Tester', 'user_id' => $user2->id]);
         $client2 = factory(Client::class)->create(['name' => 'Tester2', 'user_id' => $user->id]);
 
         $this->actingAs($user);
@@ -55,7 +56,7 @@ class ClientRepositoryTest extends TestCase
     /**
      * @test
      */
-    public function a_user_cannot_edit_his_client()
+    public function a_user_can_edit_his_client()
     {
         $user = factory(User::class)->create();
         $client = factory(Client::class)->create(['name' => 'Tester', 'user_id' => $user->id]);
