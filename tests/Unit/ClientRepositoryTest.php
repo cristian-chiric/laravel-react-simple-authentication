@@ -66,4 +66,20 @@ class ClientRepositoryTest extends TestCase
 
         $this->assertEquals('Test', $client->fresh()->name);
     }
+
+    /**
+     * @test
+     */
+    public function can_count_clients()
+    {
+        $user1 = factory(User::class)->create();
+        $user2 = factory(User::class)->create();
+        factory(Client::class, 5)->create(['user_id' => $user1->id]);
+        factory(Client::class, 7)->create(['user_id' => $user2->id]);
+
+        $this->actingAs($user1);
+        $this->assertEquals(5, $this->repository->count());
+        $this->actingAs($user2);
+        $this->assertEquals(7, $this->repository->count());
+    }
 }

@@ -15,6 +15,15 @@ class ClientRepository extends Repository
         parent::__construct($model);
     }
 
+    public function count(): int
+    {
+        if (auth()->user()) {
+            return $this->model->fromUser(auth()->user()->id)->count();
+        }
+
+        return $this->model->count();
+    }
+
     public function all(): Collection
     {
         if (auth()->user()) {
