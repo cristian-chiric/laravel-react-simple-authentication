@@ -34,10 +34,12 @@ Commands.
 ## Installation
 
 - composer install
-- yarn
+- yarn install
+- yarn dev
 - cp .env.example .env
 - php artisan key:generate
 - php artisan migrate
+- php artisan storage:link
 - valet link simple-authentication (for captcha keys to work)
 - valet secure
 
