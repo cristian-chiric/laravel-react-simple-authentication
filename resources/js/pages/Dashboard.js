@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { mountReact } from './util/mountReact'
+import { mountReact } from '../util/mountReact'
 import { Button } from "@material-ui/core"
 
 export default function Dashboard({ name, totalClients }) {

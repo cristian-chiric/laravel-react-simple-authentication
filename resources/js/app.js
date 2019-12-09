@@ -12,9 +12,9 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./Dashboard');
-require('./Clients');
-require('./Client');
+require('./pages/Dashboard');
+require('./pages/Clients');
+require('./pages/Client');
 
-require('./Register');
-require('./Login');
+require('./pages/Register');
+require('./pages/Login');

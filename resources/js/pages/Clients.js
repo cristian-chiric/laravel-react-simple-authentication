@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { mountReact } from './util/mountReact'
+import { mountReact } from '../util/mountReact'
 import { Button } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import clientDelete from "./network/clients/delete";
+import clientDelete from "../network/clients/delete";
 
 export default function Clients({ name, clients, totalClients }) {
     const urls = {

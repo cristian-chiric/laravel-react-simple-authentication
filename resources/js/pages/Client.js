@@ -1,11 +1,11 @@
 import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { mountReact } from './util/mountReact'
+import { mountReact } from '../util/mountReact'
 import { Button } from "@material-ui/core"
-import {StyledTextField} from "./shared/StyledTextField"
-import create from "./network/clients/create"
-import edit from "./network/clients/edit"
-import clientDelete from "./network/clients/delete"
+import {StyledTextField} from "../components/StyledTextField"
+import create from "../network/clients/create"
+import edit from "../network/clients/edit"
+import clientDelete from "../network/clients/delete"
 
 export default function Client({ action, client }) {
     const [name, setName] = useState(client ? client.name : '')
@@ -31,6 +31,7 @@ export default function Client({ action, client }) {
 
         if (response.status && response.status === 200) {
             setMessage('Client updated')
+            setErrors({})
         } else if (response.status && response.status === 422) {
             setErrors(response.data.errors)
         } else {

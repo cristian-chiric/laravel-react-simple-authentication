@@ -20,5 +20,5 @@ export function mountReact(selector, Component) {
     props[key] = JSON.parse(serverProps[key])
   })
 
-    ReactDOM.render(<MuiThemeProvider theme = { theme }><Component {...props}></Component></MuiThemeProvider>, element)
+    ReactDOM.render(<MuiThemeProvider theme = { theme }><Component {...props}/></MuiThemeProvider>, element)
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { mountReact } from './util/mountReact'
+import { mountReact } from '../util/mountReact'
 import { Button } from "@material-ui/core"
-import {StyledTextField} from "./shared/StyledTextField"
-import register from "./network/register"
+import {StyledTextField} from "../components/StyledTextField"
+import register from "../network/register"
 import ReCAPTCHA from "react-google-recaptcha"
 
 export default function Register({ loginRoute }) {

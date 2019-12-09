@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { mountReact } from './util/mountReact'
+import { mountReact } from '../util/mountReact'
 import { Button } from "@material-ui/core"
-import {StyledTextField} from "./shared/StyledTextField"
-import login from "./network/login"
+import {StyledTextField} from "../components/StyledTextField"
+import login from "../network/login"
 
 export default function Login({ registerRoute }) {
     const [email, setEmail] = useState('')
